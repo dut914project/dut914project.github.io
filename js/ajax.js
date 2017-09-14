@@ -12,7 +12,7 @@ function loadJSON(url, cfunc) {
     xmlhttp.send();
 }
 function testAjax() {
-    loadJSON("file:///D:/Desktop/Web/index.html", function () {
+    loadJSON("https://dut914project.github.io", function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             document.getElementById("test").innerHTML = "hahaha";
         }
