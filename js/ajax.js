@@ -12,9 +12,9 @@ function loadJSON(url, cfunc) {
     xmlhttp.send();
 }
 function testAjax() {
-    loadJSON("https://dut914project.github.io", function () {
+    loadJSON("http://localhost", function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("test").innerHTML = "hahaha";
+            document.getElementById("test").innerHTML = "Ajax success";
         }
     });
 }
