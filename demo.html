@@ -7,64 +7,10 @@
     <script src="echarts.js"></script>
     <script src="chongqing.js"></script>
     <script src="china.js"></script>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <title>Title of the document</title>
 </head>
 
 <body>
-        <nav class="navbar navbar-default navbar-fixed-top" style="background:rgba(255,255,255,1)">
-                <div class="container-fluid">
-                  <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Brand</a>
-                  </div>
-              
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                      <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                      <li><a href="#">Link</a></li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li><a href="#">Something else here</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <form class="navbar-form navbar-left">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                      </div>
-                      <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#">Link</a></li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li><a href="#">Something else here</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-              </nav>
     <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div id="main" style="width: 800px;height:600px;"></div>
     <div id="relation_chart" style="width:800px;height:600px;"></div>
@@ -72,18 +18,17 @@
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
-        var reChart= echarts.init(document.getElementById('relation_chart'));
         var base = +new Date(1999, 9, 1);
         var oneDay = 24 * 3600 * 1000;
-        var oneYear= 24*3600*1000*30
+        var oneYear= 24*3600*1000*365
         var date = [];
         
         var data = [Math.random() * 300];
         
-        for (var i = 1; i < 20*12; i++) {
+        for (var i = 1; i < 20; i++) {
             var now = new Date(base += oneYear);
             date.push([now.getFullYear(), now.getMonth() + 1].join('/'));
-            data.push(Math.round((Math.random()-0.49) * 100 +data[i-1]));
+            data.push(Math.round((Math.random()-0.4) * 100 +data[i-1]));
         }
         
         var lineOption = {
@@ -113,15 +58,15 @@
             },
             yAxis: {
                 type: 'value',
-                boundaryGap: ['0', '100%']
+                boundaryGap: [0, '10%']
             },
             dataZoom: [{
                 type: 'inside',
-                start: 60,
+                start: 0,
                 end: 100
             }, {
-                start: 10,
-                end: 50,
+                start: 0,
+                end: 10,
                 handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
                 handleSize: '80%',
                 handleStyle: {
@@ -217,7 +162,6 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(lineOption);
-        reChart.setOption(myOption)
     </script>
 </body>
 

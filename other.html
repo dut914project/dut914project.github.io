@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <script src="js/echarts.js"></script>
+    <script src="js/chongqing.js"></script>
+    <script src="js/china.js"></script>
+
+
+
+
+
+
+    <title>扶贫项目</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+           <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">扶贫计划</a>
+               </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">项目1</a></li>
+            <li><a href="#">项目2</a></li>
+            <li><a href="#">项目3</a></li>
+            <li><a href="#">登陆</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+</div>
+</div>
+  <!-- <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">项目1</a></li>
+            <li><a href="#">项目2</a></li>
+            <li><a href="#">项目3</a></li>
+          </ul>
+           <ul class="nav nav-sidebar">
+            <li><a href="">项目4</a></li>
+            <li><a href="">项目5</a></li>
+            <li><a href="">项目6</a></li>
+            <li><a href="">项目7</a></li>
+            <li><a href="">项目8</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">项目9</a></li>
+            <li><a href="">项目10</a></li>
+            <li><a href="">项目11</a></li>
+          </ul>
+        </div>-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">扶贫</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="img/list.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4><a href="list.html">帮扶名单</a></h4>
+              <span class="text-muted">The people are helped</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="img/unit.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4><a href="unit.html">帮扶单位</a></h4>
+              <span class="text-muted">Funding organization</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="img/other.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>相关统计</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="img/home page.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4><a href="home page.html">返回首页</a></h4>
+              <span class="text-muted">GO back homepage</span>
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+          
+                <div class="row featurette">
+                  <div class="col-md-7">
+                    <h2 class="featurette-heading">扶持年份 <span class="text-muted">The year of support</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                  </div>
+                  <div class="col-md-5">
+
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 400px;height:300px;"></div>
+
+
+                    
+                   <!-- <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="猫.jpg" alt="Generic placeholder image">-->
+                  </div>
+                </div>
+          
+                <hr class="featurette-divider">
+          
+                <div class="row featurette">
+                  <div class="col-md-7 col-md-push-5">
+                    <h2 class="featurette-heading">贫困原因 <span class="text-muted">Cause of poverty</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                  </div>
+                  <div class="col-md-5 col-md-pull-7">
+                    <div id="pie_chart" style="width:400px;height:300px;"></div> 
+                   <!-- <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">-->
+                  </div>
+                </div>
+          
+                <hr class="featurette-divider">
+          
+                <div class="row featurette">
+                  <div class="col-md-7">
+                    <h2 class="featurette-heading">帮扶单位资助比例 <span class="text-muted">Funding ratio</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                  </div>
+                  <div class="col-md-5">
+                    <div id="pie_chart_firm" style="width:400px;height:300px;"></div>
+                    
+                  </div>
+                </div>
+          
+                <hr class="featurette-divider">
+                
+                      <div class="row featurette">
+                        <div class="col-md-7 col-md-push-5">
+                          <h2 class="featurette-heading">文化程度 <span class="text-muted">Degree of education.</span></h2>
+                          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        </div>
+                        <div class="col-md-5 col-md-pull-7">
+                            <div id="pie_chart_edu" style="width:400px;height:300px;"></div>                            
+                        </div>
+                      </div>
+          
+                <hr class="featurette-divider">
+
+                <div class="row featurette">
+                  <div class="col-md-7">
+                    <h2 class="featurette-heading">家庭住址 <span class="text-muted">Home address</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                  </div>
+                  <div >
+                    <div id="geo_chart" style="width: 800px;height:600px;"></div>
+                    
+                  </div>
+                </div>
+                <div style="width: 600px;height:400px;"></div>
+                <hr class="featurette-divider">
+          
+                <!-- /END THE FEATURETTES -->
+          
+          
+                <!-- FOOTER -->
+                <footer>
+                  <p class="pull-right"><a href="#">Back to top</a></p>
+                  <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+          
+              </div><!-- /.container -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var base = +new Date(1999, 9, 1);
+        var oneDay = 24 * 3600 * 1000;
+        var oneYear= 24*3600*1000*365
+        var date = [];
+        
+        var data = [Math.random() * 300];
+        
+        for (var i = 1; i < 20; i++) {
+            var now = new Date(base += oneYear);
+            date.push([now.getFullYear(), now.getMonth() + 1].join('/'));
+            data.push(Math.round((Math.random()-0.4) * 100 +data[i-1]));
+        }
+        
+        var lineOption = {
+            tooltip: {
+                trigger: 'axis',
+                position: function (pt) {
+                    return [pt[0], '10%'];
+                }
+            },
+            title: {
+                left: 'center',
+                text: '大数据量面积图',
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: date
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '10%']
+            },
+            dataZoom: [{
+                type: 'inside',
+                start: 0,
+                end: 100
+            }, {
+                start: 0,
+                end: 10,
+                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                handleSize: '80%',
+                handleStyle: {
+                    color: '#fff',
+                    shadowBlur: 3,
+                    shadowColor: 'rgba(0, 0, 0, 0.6)',
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 2
+                }
+            }],
+            series: [
+                {
+                    name:'模拟数据',
+                    type:'line',
+                    smooth:false,
+                    symbol: 'none',
+                    sampling: 'average',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgb(255, 70, 131)'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgb(255, 158, 68)'
+                            }, {
+                                offset: 1,
+                                color: 'rgb(255, 70, 131)'
+                            }])
+                        }
+                    },
+                    data: data
+                }
+            ]
+        };
+        // 指定图表的配置项和数据
+        var myOption = {
+            title: {
+                text: 'Chongqing Map',
+                textStyle: {
+                    fontSize: 100
+                },
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            visualMap: {
+                min: 0,
+                max: 1000,
+                left: 'left',
+                top: '20%',
+                text: ['高', '低'],           // 文本，默认为数值文本
+                calculable: true
+            },
+            series: [
+                {
+                    name: '重庆',
+                    type: 'map',
+                    mapType: '重庆',
+                    selectedMode: 'multiple',
+                    roam: true,
+                    top: '30%',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: [
+                        { name: '忠县', value: Math.random() * 1000 },
+                        { name: '万州区', value: Math.random() * 1000 },
+                        { name: '开县', value: Math.random() * 1000 },
+                        { name: '云阳县', value: Math.random() * 1000 },
+                        { name: '奉节县', value: Math.random() * 1000 },
+                        { name: '巫山县', value: Math.random() * 1000 },
+                        { name: '巫溪县', value: Math.random() * 1000 },
+                        { name: '武隆县', value: Math.random() * 1000 },
+                        { name: '丰都县', value: Math.random() * 1000 },
+                        { name: '潼南县', value: Math.random() * 1000 },
+                        { name: '铜梁县', value: Math.random() * 1000 },
+                        { name: '大足县', value: Math.random() * 1000 },
+                        { name: '荣昌县', value: Math.random() * 1000 },
+                        { name: '璧山县', value: Math.random() * 1000 },
+                    ]
+                }
+            ]
+        };
+    
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(lineOption);
+        
+    var piChart = echarts.init(document.getElementById('pie_chart'));
+            var pieOption = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)",
+                    position: function (pt) {
+                        return [pt[0], '10%'];
+                    }
+                },
+                title: {
+                    left: 'center',
+                    text: '贫困原因',
+                },
+                visualMap: {
+                    show: false,
+                    min: 0,
+                    max: 5000,
+                    inRange: {
+                        colorLightness: [0, 1]
+                    }
+                },
+                toolbox: {
+                    feature: {
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                },
+    
+                series: [
+                    {
+                        name: '贫困原因',
+                        type: 'pie',
+                        data: [
+                            { value: 2566, name: "残疾" },
+                            { value: 1223, name: "疾病" },
+                            { value: 2013, name: "无劳动人口" },
+                            { value: 1523, name: "其他" },
+                        ].sort(function (a, b) { return a.value - b.value; }),
+                        roseType: 'radius',
+                        itemStyle: {
+                            normal: {
+                                color: '#c23531',
+                            }
+                        },
+                    }
+                ]
+            }
+            piChart.setOption(pieOption)
+    
+
+
+
+
+            var piChartFirm = echarts.init(document.getElementById('pie_chart_firm'));
+        var pieFirmOption = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)",
+                position: function (pt) {
+                    return [pt[0], '10%'];
+                }
+            },
+            legend:{
+                show:true,
+                left:'20%'
+            },
+            title: {
+                left: 'center',
+                text: '帮助单位资助比例',
+            },
+            visualMap: {
+                show: false,
+                min: 0,
+                max: 7000,
+                inRange: {
+                    colorLightness: [0.3, 1]
+                }
+            },
+            toolbox: {
+                feature: {
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+
+            series: [
+                {
+                    name: '帮助单位资助比例',
+                    type: 'pie',
+                    data: [
+                        { value: Math.random()*5000, name: "AA有限公司" },
+                        { value: Math.random()*5000, name: "BB劳动委员会" },
+                        { value: Math.random()*5000, name: "CC时光机管理机构" },
+                        { value: Math.random()*5000,name: "DD侏罗纪公园" },
+                        { value: Math.random()*5000, name: "EE有限公司" },
+                        { value: Math.random()*5000, name: "FF劳动委员会" },
+                        { value: Math.random()*5000, name: "GG时光机管理机构" },
+                        { value: Math.random()*500,name: "Other" },
+                    ].sort(function (a, b) { return a.value - b.value; }).reverse(),
+                    roseType: 'radius',
+                    itemStyle: {
+                        normal: {
+                            color: '#c22030',
+                        }
+                    },
+                    label: {
+                normal: {
+                    textStyle: {
+                        color: 'rgba(0,0,0, 0.7)'
+                    }
+                }
+            },
+                }
+            ]
+        }
+        piChartFirm.setOption(pieFirmOption)
+
+
+
+
+        var piChartEdu = echarts.init(document.getElementById('pie_chart_edu'));
+        var pieEduOption = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)",
+                position: function (pt) {
+                    return [pt[0], '10%'];
+                }
+            },
+            legend:{
+                show:true,
+                left:'20%'
+            },
+            title: {
+                left: 'center',
+                text: '文化程度',
+            },
+            visualMap: {
+                show: false,
+                min: 0,
+                max: 7000,
+                inRange: {
+                    colorLightness: [0.3, 1]
+                }
+            },
+            toolbox: {
+                feature: {
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+
+            series: [
+                {
+                    name: '文化程度',
+                    type: 'pie',
+                    radius:'55%',
+                    data: [
+                        { value: Math.random()*1, name: "博士" },
+                        { value: Math.random()*10, name: "硕士" },
+                        { value: Math.random()*20, name: "本科" },
+                        { value: Math.random()*1000,name: "高中" },
+                        { value: Math.random()*3000, name: "初中" },
+                        { value: Math.random()*5000, name: "小学" },
+                        { value: Math.random()*3000, name: "文盲" },
+                    ].sort(function (a, b) { return a.value - b.value; }).reverse(),
+                    roseType: 'radius',
+                    itemStyle: {
+                        normal: {
+                            color: '#c22030',
+                        }
+                    },
+                    label: {
+                normal: {
+                    textStyle: {
+                        color: 'rgba(0,0,0, 0.7)'
+                    }
+                }
+            },
+                }
+            ]
+        }
+        piChartEdu.setOption(pieEduOption)
+
+        var geoChart = echarts.init(document.getElementById('geo_chart'));
+
+
+        var areas = ['渝中区', '沙坪坝区', '江北区', '南岸区', '大渡口区', '九龙坡区', '渝北区', '巴南区', '北碚区',
+            '綦江区', '双桥区', '渝北区', '巴南区', '万州区', '涪陵区', '黔江区', '长寿区', '江津区', '合川区', '永川区'
+            , '南川区'];
+        var countrys = ['綦江县', '潼南区', '铜梁区', '大足区', '荣昌区', '璧山区'
+            , '梁平县', '城口县', '丰都县', '垫江县', '武隆县', '忠县'
+            , '开县', '云阳县', '奉节县', '巫山县', '巫溪县'];
+        var autoCountrys = ['石柱土家族自治县', '秀山土家族苗族自治县', '酉阳土家族苗族自治县', '彭水苗族土家族自治县'];
+        areaCountData = [];
+        for (var area in areas) {
+            areaCountData.push({ name: areas[area], value: Math.random() * 100 })
+        }
+        for (var area in countrys) {
+            areaCountData.push({ name: countrys[area], value: Math.random() * 1000 })
+        }
+        for (var area in autoCountrys) {
+            areaCountData.push({ name: autoCountrys[area], value: Math.random() * 3000 })
+        }
+        var geoOption = {
+           // backgroundColor: '#a0aaa9',
+            title: {
+                text: '重庆贫困人口分布',
+                textStyle: {
+                    fontSize: 20
+                },
+                top:'10%',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            visualMap: {
+                min: 0,
+                max: 2000,
+                left: '20%',
+                bottom: '20%',
+                text: ['高', '低'],           // 文本,默认为数值文本
+                calculable: true,
+                inRange: {
+                color: ['lightskyblue','yellow', 'orangered']
+            }
+            },
+            series: [
+                {
+                    name: '重庆',
+                    type: 'map',
+                    mapType: '重庆',
+                    zoom: 0.8,
+                    selectedMode: 'multiple',
+                    roam: true,
+                    top: '10%',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: areaCountData
+                }
+            ],
+        };
+geoChart.setOption(geoOption)
+
+
+
+
+
+    </script>
+  </body>
+</html>
