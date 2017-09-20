@@ -39,15 +39,16 @@ function getHelpList() {
             if (responseJSON.stateCode == 200) {
                 document.getElementById("listBody").innerHTML = "";//clear old data
                 for (item in responseJSON.data) {
+                    num=parseInt(item)+1
                     document.getElementById("listBody").innerHTML += '<tr>' +
-                        '<td>' + item + '</td>' +
-                        '<td><a href="list2.html" >' + responseJSON[item].householderId + '</a></td>' +
-                        '<td><a href="list2.html" >' + responseJSON[item].户主姓名 + '</a></td>' +
-                        '<td>' + responseJSON[item].户码 + '</td>' +
-                        '<td>' + responseJSON[item].贫困原因 + '</td>' +
-                        '<td>' + responseJSON[item].农化户型 + '</td>' +
-                        '<td>' + responseJSON[item].联系电话 + '</td>' +
-                        '<td>' + responseJSON[item].家庭住址 + '</td>' +
+                        '<td>' + num + '</td>' +
+                        '<td><a href="list2.html" >' + responseJSON.data[item].户主id + '</a></td>' +
+                        '<td><a href="list2.html" >' + responseJSON.data[item].户主姓名 + '</a></td>' +
+                        '<td>' + responseJSON.data[item].户码 + '</td>' +
+                        '<td>' + responseJSON.data[item].贫困原因 + '</td>' +
+                        '<td>' + responseJSON.data[item].农户属性 + '</td>' +
+                        '<td>' + responseJSON.data[item].联系电话 + '</td>' +
+                        '<td>' + responseJSON.data[item].家庭住址 + '</td>' +
                         '</tr>'
                 }
             }
