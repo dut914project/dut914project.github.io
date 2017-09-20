@@ -1,6 +1,6 @@
 
 var xmlhttp;
-function loadJSON(JSON,cfunc) {
+function loadJSON(sendJSON,cfunc) {
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
     }
@@ -8,9 +8,9 @@ function loadJSON(JSON,cfunc) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange = cfunc;
-    xmlhttp.open("POST", "http://localhost", true);//待修改成正确的地址
+    xmlhttp.open("POST", "http://localhost/list1back.html", true);//待修改成正确的地址
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xmlhttp.send(JSON);
+    xmlhttp.send(sendJSON);
 }
 function testAjax() {
     loadJSON(function () {
@@ -23,24 +23,25 @@ function test(msg) {
     alert(msg)
 }
 function JSONBuilder(orderCode, msg) {
-    JSON = {
+    sendJSON = {
         "orderCode": orderCode,
         "msg": msg
     };
-    return JSON;
+    return sendJSON;
 }
 function getHelpList() {
     console.info("run get Help List");
-    JSON = JSONBuilder(1110, "msg from getHelpList");
-    loadJSON(JSON,function () {
+    sendJSON = JSONBuilder(1110, "msg from getHelpList");
+    loadJSON(sendJSON,function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            responseJSON = JSON.parse(xmlhttp.responseText)
+            console.info(xmlhttp.responseText)
+            responseJSON = JSON.parse(xmlhttp.responseText);
             if (responseJSON.stateCode == 200) {
                 document.getElementById("listBody").innerHTML = "";//clear old data
                 for (item in responseJSON.data) {
                     document.getElementById("listBody").innerHTML += '<tr>' +
                         '<td>' + item + '</td>' +
-                        '<td><a href="list2.html" >' + responseJSON[item].户主id + '</a></td>' +
+                        '<td><a href="list2.html" >' + responseJSON[item].householderId + '</a></td>' +
                         '<td><a href="list2.html" >' + responseJSON[item].户主姓名 + '</a></td>' +
                         '<td>' + responseJSON[item].户码 + '</td>' +
                         '<td>' + responseJSON[item].贫困原因 + '</td>' +
