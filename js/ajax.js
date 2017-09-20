@@ -1,6 +1,6 @@
 
 var xmlhttp;
-function loadJSON(cfunc) {
+function loadJSON(JSON,cfunc) {
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
     }
@@ -8,8 +8,8 @@ function loadJSON(cfunc) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange = cfunc;
-    xmlhttp.open("POST", "http://localhost", true);
-    xmlhttp.send();
+    xmlhttp.open("POST", "www.baidu.com", true);
+    xmlhttp.send(JSON);
 }
 function testAjax() {
     loadJSON(function () {
@@ -31,7 +31,7 @@ function JSONBuilder(orderCode, msg) {
 function getHelpList() {
     console.info("run get Help List");
     JSON = JSONBuilder(1110, "msg from getHelpList");
-    loadJSON(function () {
+    loadJSON(JSON,function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             responseJSON = JSON.parse(xmlhttp.responseText)
             if (responseJSON.stateCode == 200) {
