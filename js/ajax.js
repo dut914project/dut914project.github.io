@@ -8,7 +8,8 @@ function loadJSON(JSON,cfunc) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange = cfunc;
-    xmlhttp.open("POST", "www.baidu.com", true);
+    xmlhttp.open("POST", "http://www.baidu.com", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xmlhttp.send(JSON);
 }
 function testAjax() {
