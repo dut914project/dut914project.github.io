@@ -8,7 +8,7 @@ function loadJSON(sendJSON,cfunc) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange = cfunc;
-    xmlhttp.open("POST", "http://localhost/list1back.html", true);//待修改成正确的地址
+    xmlhttp.open("POST", "http://192.168.1.57/user_information/ConnectToFuping", true);//待修改成正确的地址
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xmlhttp.send(sendJSON);
 }
